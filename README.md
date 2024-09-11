@@ -1,16 +1,18 @@
 # Google_Integration_Portal
 
-# Project Overview
+ **Project Overview**
 This project aims to develop a centralized web application that allows business users to efficiently manage and respond to customer reviews on their business accounts. The application uses a dummy API to simulate review data and provides a user-friendly interface for replying to customer feedback.
 
-# Key Features
+**Key Features**
 **Dummy API for Reviews:** Simulated review data for development purposes.
 **Authentication and Security:** Implements user authentication using Django Allauth and customized the login page for enhanced user experience and security.
 **Responsive UI Design:** Ensures the application is fully responsive and works seamlessly across different devices.
 
-# Technical Stack
+**Technical Stack**
 **Backend:** Django, Django Allauth
 **Frontend:** HTML, CSS, JavaScript
+**Framework:** Bootstrap, REST framework
+**Database:** SQLite
 
 # Prerequisites
 * Python 3.x
