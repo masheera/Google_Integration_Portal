@@ -39,7 +39,7 @@
 
    cd "repository-directory"
 
-3. Create and activate a virtual Environment (optional but recommended):
+2. Create and activate a virtual Environment (optional but recommended):
 
      python -m venv venv
    
@@ -49,17 +49,32 @@
    
    pip install -r requirements.txt
 
-5. Run Migrations:
+4. Run Migrations:
    
    python manage.py makemigrations
    
    python manage.py migrate
 
-7. Create a Superuser:
+5. Create a Superuser:
    
    python manage.py createsuperuser
 
-9. Run the Development Server:
+6. Create OAuth 2.0 Client ID:
+
+   * Go to APIs & Services > Credentials.
+   * Click on “Create Credentials” and select “OAuth client ID”.
+   * Configure the consent screen by providing the necessary details.
+   * Select the application type (e.g., Web application) and configure the authorized
+     redirect URIs.
+   * Click “Create” to generate your OAuth 2.0 Client ID and Client Secret.
+   
+8. Add the Credentials inside settings.py
+
+   SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'YOUR GOOGLE CLIENT ID'
+
+   SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'YOUR GOOGLE CLIENT KEY'
+   
+10. Run the Development Server:
     
    python manage.py runserver
 
