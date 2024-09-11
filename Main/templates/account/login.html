@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}
+    <title>{% trans "Sign In" %}</title>
+{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="login-container">
+        <h1>{% trans "Welcome User" %}</h1>
+        <a href="{% provider_login_url 'google'%}" class="btn btn-google">
+            <img src="{% static 'images/google.png' %}" alt="Google Icon">
+            Sign In with Google
+        </a> 
+    </div>
+{% endblock %}

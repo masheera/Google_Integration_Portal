@@ -1,0 +1,37 @@
+body {
+    background-color: #f8f9fa;
+}
+h1{
+    color: white;
+}
+.row
+{
+    margin-top: 45px;
+}
+.review-card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+.review-card .card-body {
+    padding: 20px;
+}
+.review-card .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.review-card .card-subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+}
+.review-card .card-text {
+    font-size: 0.95rem;
+}
+.container {
+    margin-top: 50px;
+}
+
+#reply
+{
+    margin-top: 20px;
+}

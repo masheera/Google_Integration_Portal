@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Sign In</title>
+{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9a1;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .container form .form-group {
+            margin-bottom: 15px;
+        }
+        .container form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .container form textarea {
+            height: 100px; /* Adjust the height as needed */
+        }
+        .container form input, .container form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px; /* Added border-radius for curved edges */
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .container form button {
+            align-self: center;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .container form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .container h2 {
+                font-size: 1.5em;
+            }
+            .container form input, .container form textarea {
+                font-size: 14px;
+            }
+            .container form button {
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .container form input, .container form textarea {
+                font-size: 12px;
+            }
+            .container form button {
+                padding: 6px 12px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="container register">
+    <h2>Enter Your Business Details</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_name">Business Name:</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="id_address">Address:</label>
+            {{ form.address }}
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

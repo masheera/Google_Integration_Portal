@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Business Reviews</title>
+{% endblock %}
+
+{% block stylesheet %}
+<link href="{% static 'css/review_list.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4 text-center">Business Reviews</h1>
+    <div class="row">
+        {% if reviews %}
+        {% for review in reviews %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card review-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ review.customer_name }}</h5>
+                    <h6 class="card-subtitle mb-2">{{ review.business.name }}</h6>
+                    <p class="card-text">{{ review.comment }}</p>
+                    <p class="card-text"><strong>Rating:</strong> {{ review.rating }}</p>
+                    {% if review.reply %}
+                    <p class="card-text"><strong>Reply:</strong> {{ review.reply }}</p>
+                    {% else %}
+                    <form method="post" action="{% url 'reply_review' review.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <textarea class="form-control" name="reply"
+                                placeholder="Write your reply here..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="reply">Reply</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p style="font-size: 20px;"> No reviews till now on your business. Try contacting the admin.</p>
+        {% endif %}
+        <div class="empty"></div>
+    </div>
+</div>
+{% endblock %}
